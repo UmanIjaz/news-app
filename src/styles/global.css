@@ -1,0 +1,43 @@
+@import "./font.css";
+@import "./variables.css";
+
+/* ====== Base Stylese ======= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+}
+
+body.dark-mode {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+/* ====== Typography ======= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  margin: 0;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

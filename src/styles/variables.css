@@ -1,0 +1,21 @@
+:root {
+  --color-primary: hsl(35, 77%, 62%);
+  --color-secondary: hsl(5, 85%, 63%);
+
+  --color-background-light: hsl(36, 100%, 99%);
+  --color-background-dark: hsl(240, 100%, 5%);
+
+  --color-text-light: hsl(240, 100%, 5%);
+  --color-text-dark: hsl(236, 13%, 42%);
+}
+
+body.dark-mode {
+  --color-primary: hsl(35, 77%, 52%);
+  --color-secondary: hsl(5, 85%, 53%);
+
+  --color-background-light: hsl(240, 100%, 5%);
+  --color-background-dark: hsl(36, 100%, 99%);
+
+  --color-text-light: hsl(236, 13%, 42%);
+  --color-text-dark: hsl(240, 100%, 85%);
+}
