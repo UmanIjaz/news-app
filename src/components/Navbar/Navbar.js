@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { ThemeToggle } from "../";
 import { ReactComponent as HamburgerIcon } from "../../assets/images/icon-menu.svg";
 import { ReactComponent as HamburgerIconClose } from "../../assets/images/icon-menu-close.svg";
 function Navbar() {
@@ -21,7 +22,7 @@ function Navbar() {
     <nav className="navbar">
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
       <button className="navbar__toggle" onClick={toggleMenu}>
-        <HamburgerIcon />
+        <HamburgerIcon className="navbar__toggle-icon" />
       </button>
       <ul
         className={
@@ -32,7 +33,7 @@ function Navbar() {
           className="navbar__toggle navbar__toggle-close"
           onClick={toggleMenu}
         >
-          <HamburgerIconClose />
+          <HamburgerIconClose className="navbar__toggle-icon" />
         </button>
         {navLinks.map(({ to, label }) => (
           <li key={to}>
@@ -46,6 +47,8 @@ function Navbar() {
             </NavLink>
           </li>
         ))}
+
+        <ThemeToggle styleClass="navbar__theme-toggle" />
       </ul>
     </nav>
   );

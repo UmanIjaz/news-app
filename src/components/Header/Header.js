@@ -1,6 +1,6 @@
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import "./Header.css";
-import { Navbar } from "../";
+import { Navbar, ThemeToggle } from "../";
 import { Link } from "react-router-dom";
 function Header() {
   return (
@@ -8,7 +8,10 @@ function Header() {
       <Link to="/">
         <Logo className="logo" />
       </Link>
-      <Navbar />
+      <div className="header__right-section">
+        <Navbar styleClass="navbar__theme-toggle" />
+        <ThemeToggle styleClass="header__theme-toggle" />
+      </div>
     </header>
   );
 }
