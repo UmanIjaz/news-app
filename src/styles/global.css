@@ -8,18 +8,23 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: var(--font-size-base);
+}
+
 body {
   margin: 0;
-  font-family: var(--font-family-base);
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
-  background-color: var(--color-background-light);
-  color: var(--color-text-dark);
+  font-weight: var(--font-weight-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
 body.dark-mode {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 /* ====== Typography ======= */
@@ -40,4 +45,11 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* ====== Layout ======= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }

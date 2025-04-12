@@ -1,8 +1,16 @@
+import { HeroArticle, Header, Sidebar, NewsList } from "../../components";
 function HomePage() {
   return (
-    <header>
-      <h2>This is header.</h2>
-    </header>
+    <>
+      <Header />
+      <main className="homepage">
+        <div className="top-section">
+          <HeroArticle />
+          <Sidebar />
+        </div>
+        <NewsList />
+      </main>
+    </>
   );
 }
 

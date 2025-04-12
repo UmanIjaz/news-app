@@ -1,0 +1,11 @@
+.logo {
+  color: var(--color-background-dark);
+}
+
+.header {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+}

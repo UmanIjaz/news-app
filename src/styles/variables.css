@@ -1,21 +1,67 @@
-:root {
+/* :root {
   --color-primary: hsl(35, 77%, 62%);
   --color-secondary: hsl(5, 85%, 63%);
 
-  --color-background-light: hsl(36, 100%, 99%);
-  --color-background-dark: hsl(240, 100%, 5%);
+  --color-background-primary: hsl(36, 100%, 99%);
+  --color-background-secondary: hsl(240, 100%, 5%);
 
-  --color-text-light: hsl(240, 100%, 5%);
-  --color-text-dark: hsl(236, 13%, 42%);
+  --color-text-primary: hsl(240, 100%, 5%);
+  --color-text-secondary: hsl(236, 13%, 42%);
+
+  --font-family-base: Inter;
+  --font-size-base: 15px;
+  --font-weight-base: 400;
+  --font-weight-bold: 700;
+
+  --spacing-unit: 1rem;
 }
 
 body.dark-mode {
   --color-primary: hsl(35, 77%, 52%);
   --color-secondary: hsl(5, 85%, 53%);
 
-  --color-background-light: hsl(240, 100%, 5%);
-  --color-background-dark: hsl(36, 100%, 99%);
+  --color-background-primary: hsl(240, 100%, 5%);
+  --color-background-secondary: hsl(36, 100%, 99%);
 
-  --color-text-light: hsl(236, 13%, 42%);
-  --color-text-dark: hsl(240, 100%, 85%);
+  --color-text-primary: hsl(236, 13%, 42%);
+  --color-text-secondary: hsl(240, 100%, 85%);
+} */
+:root {
+  /* Color Roles */
+  --color-accent-1: hsl(35, 77%, 62%); /* Primary accent (orange) */
+  --color-accent-2: hsl(5, 85%, 63%); /* Secondary accent (red) */
+
+  /* Background Colors */
+  --color-bg: hsl(36, 100%, 99%); /* Primary background */
+  --color-bg-alt: hsl(240, 100%, 5%); /* Secondary background */
+
+  /* Text Colors */
+  --color-text: hsl(240, 100%, 5%); /* Primary text */
+  --color-text-alt: hsl(236, 13%, 42%); /* Secondary text */
+  --color-text-invert: hsl(36, 100%, 99%); /* Text on dark backgrounds */
+
+  --color-overlay: hsla(0, 0%, 0%, 0.5);
+
+  /* Font System */
+  --font-family: "Inter", sans-serif;
+  --font-size-base: 15px;
+  --font-weight-base: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+}
+
+body.dark-mode {
+  --color-accent-1: hsl(35, 77%, 52%);
+  --color-accent-2: hsl(5, 85%, 53%);
+
+  --color-bg: hsl(240, 100%, 5%);
+  --color-bg-alt: hsl(36, 100%, 99%);
+
+  --color-text: hsl(236, 13%, 42%);
+  --color-text-alt: hsl(240, 100%, 85%);
+  --color-text-invert: hsl(240, 100%, 5%);
+
+  --color-overlay: hsla(0, 0%, 100%, 0.1);
 }
