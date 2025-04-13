@@ -12,6 +12,13 @@
   --color-text-alt: hsl(236, 13%, 42%); /* Secondary text */
   --color-text-invert: hsl(36, 100%, 99%); /* Text on dark backgrounds */
 
+  --heading-gradient-light: var(--color-text);
+  --heading-gradient-dark: linear-gradient(
+    90deg,
+    hsl(260, 100%, 70%),
+    hsl(190, 100%, 70%)
+  );
+
   --color-overlay: hsla(0, 0%, 0%, 0.5);
 
   /* Font System */
@@ -21,7 +28,15 @@
   --font-weight-bold: 700;
 
   /* Spacing */
-  --spacing-unit: 1rem;
+  --space-xs: 0.5rem; /* 7.5px */
+  --space-sm: 0.75rem; /* 11.25px */
+  --space-md: 1rem; /* 15px (base) */
+  --space-lg: 1.5rem; /* 22.5px */
+  --space-xl: 2rem; /* 30px */
+  --space-2xl: 3rem; /* 45px */
+  --space-3xl: 4rem; /* 60px */
+
+  --gap: var(--space-md);
 }
 
 body.dark-mode {
@@ -32,7 +47,6 @@ body.dark-mode {
   --color-bg-alt: hsl(36, 100%, 99%);
 
   --color-text: hsl(236, 13%, 42%);
-  /* --color-text-alt: hsl(240, 100%, 85%); */
   --color-text-alt: hsl(0, 0%, 80%);
   --color-text-invert: hsl(240, 100%, 5%);
 

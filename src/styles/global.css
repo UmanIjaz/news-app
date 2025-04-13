@@ -55,5 +55,7 @@ a {
 }
 
 /* ====== Utils ======= */
-
+.top-section {
+  margin-top: var(--space-xl);
+}
 /* ====== General Media quereis ======= */

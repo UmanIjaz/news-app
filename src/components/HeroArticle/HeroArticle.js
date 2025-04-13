@@ -9,14 +9,16 @@ function HeroArticle() {
         <img
           src={articles.hero.img.desktop}
           alt="The Bright Future of Web 3.0"
-          className="hero-image"
+          className="hero-article__image"
         />
       </picture>
-      <div className="bottom-section">
-        <h1>{articles.hero.title}</h1>
-        <div className="hero__right-section">
-          <p>{articles.hero.description}</p>
-          <CtaButton label="Read More" onClick={() => console.log("hy")} />
+      <div className="hero-article__content">
+        <h1 className="hero-article__heading">{articles.hero.title}</h1>
+        <div className="hero-article__content-bottom">
+          <p className="hero-article__content-para">
+            {articles.hero.description}
+          </p>
+          <CtaButton label="Read More" />
         </div>
       </div>
     </article>
