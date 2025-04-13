@@ -13,15 +13,13 @@ function HomePage() {
 
   return (
     <>
-      <Header />
-      <main className="homepage container">
+      <section className="homepage container">
         <div className="top-section homepage__top-section">
           <HeroArticle />
           <Sidebar items={newArticles} />
         </div>
         <HighlightsCards items={trendingArticles} />
-      </main>
-      <Footer />
+      </section>
     </>
   );
 }

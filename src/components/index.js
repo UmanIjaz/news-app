@@ -7,5 +7,7 @@ export { default as HighlightsCards } from "./HighlightsCards/HighlightsCards";
 export { default as HighlightsCard } from "./HighlightsCard/HighlightsCard";
 export { default as Footer } from "./Footer/Footer";
 
+export { default as Layout } from "./Layout/Layout";
+
 // ----- UTILS --------
 export { default as CtaButton } from "./utils/CtaButton/CtaButton";
