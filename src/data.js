@@ -6,6 +6,7 @@ import featuredImg3 from "./assets/images/image-gaming-growth.jpg";
 
 const articles = {
   hero: {
+    id: "hero-001",
     title: "The Bright Future of Web 3.0?",
     description:
       "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
@@ -17,19 +18,19 @@ const articles = {
   },
   trending: [
     {
-      id: "01",
+      id: "trend-01",
       title: "Reviving Retro PCs",
       description: "What happens when old PCs are given modern upgrades?",
       image: featuredImg1,
     },
     {
-      id: "02",
+      id: "trend-02",
       title: "Top 10 Laptops of 2022",
       description: "Our best picks for various needs and budgets",
       image: featuredImg2,
     },
     {
-      id: "03",
+      id: "trend-03",
       title: "The Growth of Gaming",
       description: "How the pandemic has sparked fresh opportunities.",
       image: featuredImg3,
@@ -37,16 +38,19 @@ const articles = {
   ],
   new: [
     {
+      id: "new-01",
       title: "Hydrogen VS Electric Cars",
       description: "Will hydrogen-fueled cars ever catch up to EVs?",
       isNew: true,
     },
     {
+      id: "new-02",
       title: "The Downsides of AI Artistry",
       description:
         "What are the possible adverse effects of on-demand AI image generation?",
     },
     {
+      id: "new-03",
       title: "Is VC Funding Drying Up?",
       description:
         "Private funding by VC firms is down 50% YOY. We take a look at what that means",

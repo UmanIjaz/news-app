@@ -4,6 +4,11 @@
   gap: var(--space-lg);
 }
 
+.highlights-card:hover .highlights-card__heading {
+  transition: var(--hover-color-transition);
+  color: var(--color-accent-2);
+}
+
 .highlights-card__image {
   width: 100px;
 }

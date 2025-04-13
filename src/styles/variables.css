@@ -36,6 +36,12 @@
   --space-2xl: 3rem; /* 45px */ /* for section spacing */
   --space-3xl: 4rem; /* 60px */
 
+  /* Transtions */
+  --hover-color-transition: all 0.2s ease-in-out;
+
+  /* Box Shadows */
+  --shadow-btn: 0 4px 12px rgba(201, 55, 43, 0.2);
+
   --gap: var(--space-md);
 }
 

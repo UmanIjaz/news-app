@@ -8,6 +8,11 @@
 
 .cta-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgb(201 101 43 / 59%);
+}
+
+body.dark-mode .cta-btn:hover {
+  box-shadow: none;
 }
 
 .cta-btn__primary {

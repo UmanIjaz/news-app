@@ -1,6 +1,7 @@
 import "./HeroArticle.css";
 import { CtaButton } from "../index";
 import articles from "../../data";
+import { Link } from "react-router-dom";
 function HeroArticle() {
   return (
     <article className="hero-article">
@@ -21,7 +22,9 @@ function HeroArticle() {
           <p className="hero-article__content-para">
             {articles.hero.description}
           </p>
-          <CtaButton label="Read More" />
+          <Link to={`articles/trend-01`}>
+            <CtaButton label="Read More" />
+          </Link>
         </div>
       </div>
     </article>

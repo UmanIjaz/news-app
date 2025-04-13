@@ -19,6 +19,15 @@ body.dark-mode .sidebar__heading {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.sidebar__item {
+  transition: var(--hover-color-transition);
+}
+
+.sidebar__item:hover {
+  color: var(--color-accent-1);
+}
+
 .sidebar__item-description {
   color: var(--color-text-invert);
   margin: 0;

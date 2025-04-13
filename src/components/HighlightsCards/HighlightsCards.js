@@ -1,11 +1,14 @@
 import "./HighlightsCards.css";
 import { HighlightsCard } from "..";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 function HighlightsCards({ items }) {
   return (
     <section className="highlights-cards">
       {items.map((item, index) => (
-        <HighlightsCard item={item} itemIndex={index} key={item.id || index} />
+        <Link to={`articles/${item.id}`} key={item.id || index}>
+          <HighlightsCard item={item} itemIndex={index} />
+        </Link>
       ))}
     </section>
   );
