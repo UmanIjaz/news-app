@@ -3,7 +3,7 @@ function HomePage() {
   return (
     <>
       <Header />
-      <main className="homepage">
+      <main className="homepage container">
         <div className="top-section">
           <HeroArticle />
           <Sidebar />

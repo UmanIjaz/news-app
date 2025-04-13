@@ -5,3 +5,6 @@ export { default as NewsCard } from "./NewsCard/NewsCard";
 export { default as NewsList } from "./NewsList/NewsList";
 export { default as Sidebar } from "./Sidebar/Sidebar";
 export { default as ThemeToggle } from "./ThemeToggle/ThemeToggle";
+
+// ----- UTILS --------
+export { default as CtaButton } from "./utils/CtaButton/CtaButton";

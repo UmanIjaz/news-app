@@ -1,0 +1,49 @@
+.cta-btn {
+  border: none;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cta-btn__primary {
+  background-color: var(--color-accent-2);
+  color: var(--color-bg-alt);
+}
+
+.cta-btn__secondary {
+  background-color: var(--color-bg-alt);
+  color: var(--color-bg);
+}
+
+.cta-btn__small {
+  padding: 1rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.cta-btn__normal {
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.cta-btn__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
