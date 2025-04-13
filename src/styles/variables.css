@@ -4,13 +4,12 @@
   --color-accent-2: hsl(5, 85%, 63%); /* Secondary accent (red) */
 
   /* Background Colors */
-  --color-bg: hsl(36, 100%, 99%); /* Primary background */
+  --color-bg: hsl(0deg 0% 97.79%); /* Primary background */
   --color-bg-alt: hsl(240, 100%, 5%); /* Secondary background */
 
   /* Text Colors */
   --color-text: hsl(240, 100%, 5%); /* Primary text */
   --color-text-alt: hsl(236, 13%, 42%); /* Secondary text */
-  /* --color-text-invert: hsl(217, 28%, 74%); Text on dark backgrounds */
   --color-text-invert: hsl(240, 4%, 74%); /* Text on dark backgrounds */
 
   --blue-gradient: linear-gradient(

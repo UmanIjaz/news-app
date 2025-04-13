@@ -1,0 +1,14 @@
+.footer {
+  background-color: var(--color-bg-alt);
+  padding: 0.6rem;
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.footer__text {
+  color: var(--color-text-invert);
+}
+
+.footer__text a {
+  text-decoration: none;
+}

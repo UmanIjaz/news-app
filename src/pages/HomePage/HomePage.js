@@ -3,6 +3,7 @@ import {
   Header,
   Sidebar,
   HighlightsCards,
+  Footer,
 } from "../../components";
 import articles from "../../data";
 import "./HomePage.css";
@@ -20,6 +21,7 @@ function HomePage() {
         </div>
         <HighlightsCards items={trendingArticles} />
       </main>
+      <Footer />
     </>
   );
 }
