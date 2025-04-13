@@ -1,0 +1,120 @@
+.article-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-block: var(--space-lg);
+}
+
+.article-page p {
+  color: var(--color-text-alt);
+}
+
+.article-page__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  border-bottom: 8px solid var(--color-bg-alt);
+  padding-bottom: var(--space-lg);
+}
+
+.article-page__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.article-page__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--font-weight-bold);
+}
+
+.article-page__description {
+  font-size: 1.1rem;
+}
+
+.article-page__author-info {
+  position: relative;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.article-page__author-info > div {
+  font-weight: var(--font-weight-bold);
+}
+
+.article-page__author-info > div span {
+  font-weight: var(--font-weight-base);
+}
+
+.article-page__author-info > div::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 1px;
+  background-color: rgb(117, 117, 117);
+  left: 160px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.article-page__author-info > div:last-child {
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.article-page__image {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+/* Bottom layout */
+.article-page__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+/* Content takes 2/3, sidebar 1/3 */
+.article-page__content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.article-page__text {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: var(--color-text-alt);
+}
+
+.article-page__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  flex: 1;
+  position: sticky;
+  top: var(--space-lg);
+}
+
+/* ====== Media Queries ===== */
+@media screen and (min-width: 768px) {
+  .article-page__header {
+    flex-direction: row;
+  }
+
+  .article-page__image {
+    width: 300px;
+    max-height: 200px;
+  }
+
+  .article-page__main {
+    flex-direction: row;
+  }
+}
