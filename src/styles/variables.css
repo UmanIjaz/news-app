@@ -10,14 +10,15 @@
   /* Text Colors */
   --color-text: hsl(240, 100%, 5%); /* Primary text */
   --color-text-alt: hsl(236, 13%, 42%); /* Secondary text */
-  --color-text-invert: hsl(36, 100%, 99%); /* Text on dark backgrounds */
+  /* --color-text-invert: hsl(217, 28%, 74%); Text on dark backgrounds */
+  --color-text-invert: hsl(240, 4%, 74%); /* Text on dark backgrounds */
 
-  --heading-gradient-light: var(--color-text);
-  --heading-gradient-dark: linear-gradient(
+  --blue-gradient: linear-gradient(
     90deg,
     hsl(260, 100%, 70%),
     hsl(190, 100%, 70%)
   );
+  --orange-gradient: linear-gradient(to right, #ff8a00, #e52e71);
 
   --color-overlay: hsla(0, 0%, 0%, 0.5);
 

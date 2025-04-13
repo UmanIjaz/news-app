@@ -28,18 +28,21 @@ body.dark-mode {
 }
 
 /* ====== Typography ======= */
-h1,
+h1 {
+  font-weight: 800;
+  margin: 0;
+}
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: var(--font-weight-bold);
   margin: 0;
 }
 
 p {
-  margin-bottom: 1em;
+  margin: 0;
 }
 
 a {
@@ -56,6 +59,14 @@ a {
 
 /* ====== Utils ======= */
 .top-section {
+  display: grid;
   margin-top: var(--space-xl);
+  gap: var(--space-2xl);
 }
 /* ====== General Media quereis ======= */
+@media screen and (min-width: 768px) {
+  .top-section {
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+  }
+}

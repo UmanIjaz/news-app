@@ -1,0 +1,36 @@
+.sidebar {
+  background-color: var(--color-bg-alt);
+  color: var(--color-bg);
+  padding: var(--space-xl) var(--space-lg);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar__heading {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-accent-1);
+}
+
+body.dark-mode .sidebar__heading {
+  background: var(--orange-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sidebar__item-description {
+  color: var(--color-text-invert);
+  margin: 0;
+}
+
+.sidebar__item hr {
+  border-color: var(--color-text-alt);
+  margin: var(--space-lg) 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    justify-content: flex-start;
+  }
+}
