@@ -34,7 +34,7 @@
   --space-md: 1rem; /* 15px (base) */
   --space-lg: 1.5rem; /* 22.5px */
   --space-xl: 2rem; /* 30px */
-  --space-2xl: 3rem; /* 45px */
+  --space-2xl: 3rem; /* 45px */ /* for section spacing */
   --space-3xl: 4rem; /* 60px */
 
   --gap: var(--space-md);

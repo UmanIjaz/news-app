@@ -5,9 +5,12 @@ function HeroArticle() {
   return (
     <article className="hero-article">
       <picture>
-        <source media="(max-width: 768px)" srcSet={articles.hero.img.mobile} />
+        <source
+          media="(max-width: 768px)"
+          srcSet={articles.hero.image.mobile}
+        />
         <img
-          src={articles.hero.img.desktop}
+          src={articles.hero.image.desktop}
           alt="The Bright Future of Web 3.0"
           className="hero-article__image"
         />

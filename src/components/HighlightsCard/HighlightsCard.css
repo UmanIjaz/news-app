@@ -1,0 +1,19 @@
+.highlights-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.highlights-card__image {
+  width: 100px;
+}
+
+.highlights-card__index {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-2);
+}
+
+.highlights-card__description {
+  color: var(--color-text-alt);
+}

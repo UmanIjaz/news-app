@@ -42,11 +42,11 @@ body.dark-mode .hero-article__heading {
   .hero-article__heading {
     width: 85%;
     margin: 0;
+    margin-right: 1rem;
   }
 
   .hero-article__content-para {
     padding-bottom: var(--space-xl);
-    padding-top: 0;
   }
 }
 
@@ -54,5 +54,9 @@ body.dark-mode .hero-article__heading {
   .hero-article__content {
     flex-direction: row;
     align-items: flex-start;
+  }
+
+  .hero-article__content-para {
+    padding-top: 0;
   }
 }

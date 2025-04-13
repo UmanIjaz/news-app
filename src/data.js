@@ -10,29 +10,29 @@ const articles = {
     description:
       "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
     cta: "READ MORE",
-    img: {
+    image: {
       desktop: heroImgDesktop,
       mobile: heroImgMobile,
     },
   },
-  featured: [
+  trending: [
     {
       id: "01",
       title: "Reviving Retro PCs",
       description: "What happens when old PCs are given modern upgrades?",
-      img: featuredImg1,
+      image: featuredImg1,
     },
     {
       id: "02",
       title: "Top 10 Laptops of 2022",
       description: "Our best picks for various needs and budgets",
-      img: featuredImg2,
+      image: featuredImg2,
     },
     {
       id: "03",
       title: "The Growth of Gaming",
       description: "How the pandemic has sparked fresh opportunities.",
-      img: featuredImg3,
+      image: featuredImg3,
     },
   ],
   new: [

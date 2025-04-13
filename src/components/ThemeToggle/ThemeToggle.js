@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { ReactComponent as Sun } from "../../assets/images/sun-icon.svg";
 import { ReactComponent as Moon } from "../../assets/images/moon-icon.svg";
 import "./ThemeToggle.css";
-function ThemeToggle({ styleClass }) {
+import PropTypes from "prop-types";
+function ThemeToggle({ styleClass = "header__theme-toggle" }) {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -28,5 +29,9 @@ function ThemeToggle({ styleClass }) {
     </button>
   );
 }
+
+ThemeToggle.propTypes = {
+  styleClass: PropTypes.string,
+};
 
 export default ThemeToggle;
