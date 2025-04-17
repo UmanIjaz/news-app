@@ -8,6 +8,7 @@ export { default as HighlightsCard } from "./HighlightsCard/HighlightsCard";
 export { default as ArticleCard } from "./ArticleCard/ArticleCard";
 export { default as ArticlesGrid } from "./ArticlesGrid/ArticlesGrid";
 export { default as PageHeading } from "./utils/PageHeading/PageHeading";
+export { default as SearchBar } from "./SearchBar/SearchBar";
 
 export { default as Footer } from "./Footer/Footer";
 

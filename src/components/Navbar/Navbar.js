@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { ThemeToggle } from "../";
 import { ReactComponent as HamburgerIcon } from "../../assets/images/icon-menu.svg";
 import { ReactComponent as HamburgerIconClose } from "../../assets/images/icon-menu-close.svg";
+import { SearchBar } from "../";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
@@ -20,6 +21,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+      <SearchBar className="search-bar__tablet" />
       <button className="navbar__toggle" onClick={toggleMenu}>
         <HamburgerIcon className="navbar__toggle-icon" />
       </button>
@@ -48,6 +50,7 @@ function Navbar() {
           </li>
         ))}
 
+        <SearchBar className="search-bar__desktop" />
         <ThemeToggle styleClass="navbar__theme-toggle" />
       </ul>
     </nav>
