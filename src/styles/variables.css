@@ -24,6 +24,9 @@
   /* Font System */
   --font-family: "Inter", sans-serif;
   --font-size-base: 15px;
+  --font-size-page-title: clamp(2.5rem, 5vw, 4rem);
+  --font-size-page-title: clamp(2.5rem, 5vw, 4rem);
+  --font-size-page-title: clamp(2.5rem, 5vw, 4rem);
   --font-weight-base: 400;
   --font-weight-bold: 700;
 

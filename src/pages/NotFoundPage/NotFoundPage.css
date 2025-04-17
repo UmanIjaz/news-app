@@ -1,0 +1,13 @@
+.page-404 {
+  height: 90vh;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.page-404__heading {
+  font-size: 2rem;
+}
+
+.page-404__text {
+  color: var(--color-text-alt);
+}

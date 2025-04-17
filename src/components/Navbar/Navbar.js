@@ -8,10 +8,9 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/new", label: "New" },
-    { to: "/popular", label: "Popular" },
-    { to: "/trending", label: "Trending" },
-    { to: "/category", label: "Category" },
+    { to: "/category/new", label: "New" },
+    { to: "/category/popular", label: "Popular" },
+    { to: "/category/trending", label: "Trending" },
   ];
 
   function toggleMenu() {
@@ -42,6 +41,7 @@ function Navbar() {
               className={({ isActive }) =>
                 isActive ? "navbar__link navbar__link--active" : "navbar__link"
               }
+              onClick={() => setIsMenuOpen((prev) => (prev ? false : ""))}
             >
               {label}
             </NavLink>

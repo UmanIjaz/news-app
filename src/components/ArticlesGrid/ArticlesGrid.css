@@ -1,0 +1,13 @@
+.articles-grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ====== Media Queries ====== */
+@media screen and (min-width: 768px) {
+  .articles-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+}

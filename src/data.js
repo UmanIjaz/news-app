@@ -209,6 +209,23 @@ The article concludes with proposed guidelines for ethical AI development: trans
       category: "AI",
       readTime: "9 min",
     },
+    {
+      id: "feat-02",
+      title: "Digital Twins: Shaping the Future of Smart Cities",
+      description:
+        "How virtual replicas of cities are transforming urban planning and sustainability.",
+      content: `Digital twins—real-time, virtual counterparts of physical cities—are revolutionizing how urban environments are designed, monitored, and maintained.
+    
+    Using real-time data from IoT devices, sensors, and public records, digital twins allow city planners to simulate scenarios like traffic changes, energy consumption, or emergency response, all before implementing them in the real world.
+    
+    Experts believe digital twins will lead to smarter, more resilient cities by helping governments make data-driven decisions. However, they also raise concerns about privacy, data ownership, and surveillance.
+    
+    This article features insights from urban technologists, government officials, and privacy advocates, exploring both the promise and pitfalls of this emerging technology. As cities strive for efficiency and sustainability, digital twins may become a central part of the urban landscape.`,
+      author: "Lena Martinez",
+      date: "2023-11-02",
+      category: "Tech",
+      readTime: "7 min",
+    },
   ],
 };
 
