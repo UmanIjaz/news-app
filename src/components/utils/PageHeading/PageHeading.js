@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./PageHeading.css";
 import "../../";
-function PageHeading({ heading }) {
+function PageHeading({ heading, description }) {
   return (
     <section className="page-heading">
       <div className="page-heading__title-div">
@@ -10,6 +10,7 @@ function PageHeading({ heading }) {
 
       <div className="page-heading__sub-title">
         <h3>All Stories</h3>
+        <p>{description}</p>
       </div>
     </section>
   );
@@ -17,6 +18,7 @@ function PageHeading({ heading }) {
 
 PageHeading.propTypes = {
   heading: PropTypes.string.isRequired,
+  description: PropTypes.string,
 };
 
 export default PageHeading;
