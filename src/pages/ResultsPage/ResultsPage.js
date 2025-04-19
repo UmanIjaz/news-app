@@ -1,14 +1,28 @@
 import "./ResultsPage.css";
-import { fullArticles } from "../../data";
+// import { fullArticles } from "../../data";
 import { ArticlesGrid, PageHeading } from "../../components";
+import fetchArticles from "../../api/news";
 import PropTypes from "prop-types";
-function CategoryPage({ title, description = "" }) {
-  const getArticles = () => {
-    const allArticles = [...fullArticles.trending, ...fullArticles.featured];
-    return allArticles;
-  };
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-  const articles = getArticles();
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function ResultsPage({ title, description = "" }) {
+  const query = useQuery().get("query");
+  const [articles, setArticles] = useState("");
+
+  useEffect(() => {
+    async function loadArticles() {
+      const news = await fetchArticles({ query: query });
+      setArticles(news);
+      // console.log(news);
+    }
+    loadArticles();
+  }, [query]);
+
   return (
     <main className="category-page container">
       <PageHeading heading={title} description={description} />
@@ -17,9 +31,9 @@ function CategoryPage({ title, description = "" }) {
   );
 }
 
-CategoryPage.propTypes = {
+ResultsPage.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
 };
 
-export default CategoryPage;
+export default ResultsPage;

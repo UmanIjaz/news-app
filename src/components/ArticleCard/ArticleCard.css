@@ -18,6 +18,10 @@
   gap: 0.3rem;
 }
 
+.article-card__category {
+  text-transform: uppercase;
+}
+
 .article-card__heading {
   font-size: clamp(1rem, 5vw, 1.2rem);
 }

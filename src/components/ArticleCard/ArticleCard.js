@@ -10,14 +10,16 @@ function ArticleCard({ article }) {
     <article className="article-card">
       <img
         className="article-card__image"
-        alt={article.title}
-        src={article.image || "/fallbackImage.jpg"}
+        alt={article.Title}
+        src={article.Image || "/fallbackImage.jpg"}
       />
       <div className="article-card__content">
-        <span>{article.category}</span>
+        <span className="article-card__category">
+          {article.Categories.label}
+        </span>
         <Link to={`/articles/${article.id}`} className="article-card__link">
-          <h4 className="article-card__heading">{article.title}</h4>
-          <p>{article.description}</p>
+          <h4 className="article-card__heading">{article.Title}</h4>
+          <p>{article.Description}</p>
         </Link>
       </div>
     </article>

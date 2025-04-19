@@ -4,9 +4,13 @@ import { ArticleCard } from "../";
 function ArticlesGrid({ articles }) {
   return (
     <section className="articles-grid">
-      {articles.map((article, index) => (
-        <ArticleCard key={article.id || index} article={article} />
-      ))}
+      {articles && articles.length > 0 ? (
+        articles.map((article, index) => (
+          <ArticleCard key={article.id || index} article={article} />
+        ))
+      ) : (
+        <p>Nothing to show</p>
+      )}
     </section>
   );
 }

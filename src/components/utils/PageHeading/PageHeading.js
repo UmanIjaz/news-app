@@ -6,11 +6,11 @@ function PageHeading({ heading, description }) {
     <section className="page-heading">
       <div className="page-heading__title-div">
         <h1 className="page-heading__title">{heading}</h1>
+        <p>{description}</p>
       </div>
 
       <div className="page-heading__sub-title">
         <h3>All Stories</h3>
-        <p>{description}</p>
       </div>
     </section>
   );
