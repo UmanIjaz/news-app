@@ -1,28 +1,26 @@
 import "./HeroArticle.css";
 import { CtaButton } from "../index";
-import articles from "../../data";
 import { Link } from "react-router-dom";
-function HeroArticle() {
+import PropTypes from "prop-types";
+import { trimText } from "../../utilFunc";
+function HeroArticle({ item }) {
   return (
     <article className="hero-article">
       <picture>
-        <source
-          media="(max-width: 768px)"
-          srcSet={articles.hero.image.mobile}
-        />
+        <source media="(max-width: 768px)" srcSet={item?.Image} />
         <img
-          src={articles.hero.image.desktop}
+          src={item?.Image}
           alt="The Bright Future of Web 3.0"
           className="hero-article__image"
         />
       </picture>
       <div className="hero-article__content">
-        <h1 className="hero-article__heading">{articles.hero.title}</h1>
+        <h1 className="hero-article__heading">{trimText(item?.Title, 50)}</h1>
         <div className="hero-article__content-bottom">
           <p className="hero-article__content-para">
-            {articles.hero.description}
+            {trimText(item?.Description, 100)}
           </p>
-          <Link to={`articles/trend-01`}>
+          <Link to={`articles/${item?.Title}`}>
             <CtaButton label="Read More" />
           </Link>
         </div>
@@ -30,5 +28,9 @@ function HeroArticle() {
     </article>
   );
 }
+
+HeroArticle.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 
 export default HeroArticle;

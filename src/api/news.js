@@ -1,22 +1,37 @@
-async function fetchArticles({ search = "elon", languages = "en" } = {}) {
-  const url = `http://localhost:5000/api/news?search=${encodeURIComponent(
-    search
-  )}&languages=${languages}`;
-
+const fetchArticles = async ({ targetUrl, setIsLoading, setArticles }) => {
+  setIsLoading(true);
   try {
-    const response = await fetch(url);
+    const response = await fetch(
+      `http://localhost:5000/api/proxy?targetUrl=${encodeURIComponent(
+        targetUrl
+      )}`
+    );
 
+    console.log(targetUrl);
+
+    // Better error handling
     if (!response.ok) {
-      throw new Error(`Error fetching articles: ${response.statusText}`);
+      const errorText = await response.text();
+      throw new Error(`API error: ${response.status} - ${errorText}`);
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      const text = await response.text();
+      throw new Error(`Expected JSON but got ${contentType}: ${text}`);
     }
 
     const data = await response.json();
-    return Array.isArray(data) ? data : data.news || [];
+    console.log(data);
+    setArticles(data.news || []);
   } catch (error) {
-    console.error("Fetch Error:", error);
-    alert("Failed to load news articles. Please try again later.");
-    return [];
+    console.error("Error fetching articles:", error);
+    setArticles([]);
+    // Show user-friendly error
+    alert(`Failed to load articles: ${error.message}`);
+  } finally {
+    setIsLoading(false);
   }
-}
+};
 
 export default fetchArticles;

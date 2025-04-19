@@ -7,10 +7,10 @@ function Sidebar({ title = "New", items }) {
       <h2 className="sidebar__heading">{title}</h2>
       <div className="sidebar__items">
         {items.map((item, index) => (
-          <Link to={`articles/${item.id}`} key={item.id || index}>
+          <Link to={`articles/${item.Title}`} key={item.Title || index}>
             <div className="sidebar__item">
-              <h3 className="sidebar__item-title">{item.title}</h3>
-              <p className="sidebar__item-description">{item.description}</p>
+              <h3 className="sidebar__item-title">{item.Title}</h3>
+              <p className="sidebar__item-description">{item.Description}</p>
               {index !== items.length - 1 && <hr />}
             </div>
           </Link>

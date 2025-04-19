@@ -1,6 +1,6 @@
 .highlights-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-lg);
 }
 
@@ -11,6 +11,8 @@
 
 .highlights-card__image {
   width: 100px;
+  height: 120px;
+  object-fit: cover;
 }
 
 .highlights-card__index {

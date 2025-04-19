@@ -12,6 +12,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "node": "^23.11.0",
+    "node-fetch": "^3.3.2",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -26,7 +27,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "server": "node server.js",
+    "server": "node ./server/server.js",
     "dev": "nodemon ./server/server.js"
   },
   "eslintConfig": {

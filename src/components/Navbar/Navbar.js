@@ -9,9 +9,9 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { to: "/", label: "Home" },
-    { to: "/category/new", label: "New" },
-    { to: "/category/popular", label: "Popular" },
-    { to: "/category/trending", label: "Trending" },
+    { to: "/category/Crypto", label: "Crypto" },
+    { to: "/category/Pakistan", label: "Pakistan" },
+    { to: "/category/news", label: "Feed" },
   ];
 
   function toggleMenu() {
