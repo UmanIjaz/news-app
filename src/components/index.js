@@ -16,3 +16,4 @@ export { default as Layout } from "./Layout/Layout";
 
 // ----- UTILS --------
 export { default as CtaButton } from "./utils/CtaButton/CtaButton";
+export { default as Loader } from "./utils/Loader/Loader";

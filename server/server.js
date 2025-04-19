@@ -9,7 +9,7 @@ const PORT = 5000;
 app.use(cors());
 
 const API_KEY = process.env.REACT_APP_NEWS_API_KEY;
-const isDev = process.env.NODE_ENV === "developments";
+const isDev = process.env.NODE_ENV === "development";
 
 // In-memory cache
 const cache = new Map();
