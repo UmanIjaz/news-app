@@ -1,17 +1,24 @@
 import "./Sidebar.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-function Sidebar({ title = "New", items }) {
+// import articles from "../../data";
+function Sidebar({ title = "New", articles }) {
   return (
     <aside className="sidebar">
       <h2 className="sidebar__heading">{title}</h2>
       <div className="sidebar__items">
-        {items.map((item, index) => (
-          <Link to={`articles/${item.Title}`} key={item.Title || index}>
+        {articles.map((article, index) => (
+          <Link
+            to={`/articles/${article?.Title}`}
+            state={{ article }}
+            key={article.Title || index}
+          >
             <div className="sidebar__item">
-              <h3 className="sidebar__item-title">{item.Title}</h3>
-              <p className="sidebar__item-description">{item.Description}</p>
-              {index !== items.length - 1 && <hr />}
+              <h3 className="sidebar__item-title">{article?.Title}</h3>
+              <p className="sidebar__item-description">
+                {article?.Description}
+              </p>
+              {index !== articles.length - 1 && <hr />}
             </div>
           </Link>
         ))}
@@ -22,7 +29,7 @@ function Sidebar({ title = "New", items }) {
 
 Sidebar.propTypes = {
   title: PropTypes.string,
-  items: PropTypes.arrayOf(
+  articles: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string.isRequired,

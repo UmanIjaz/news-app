@@ -18,7 +18,11 @@ function ArticleCard({ article }) {
         <span className="article-card__category">
           {/* {article.Categories.label} */}
         </span>
-        <Link to={`/articles/${article.Title}`} className="article-card__link">
+        <Link
+          to={`/articles/${article.Title}`}
+          state={{ article }}
+          className="article-card__link"
+        >
           <h4 className="article-card__heading">
             {trimText(article.Title, 50)}
           </h4>

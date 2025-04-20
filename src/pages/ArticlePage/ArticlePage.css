@@ -94,6 +94,18 @@
   color: var(--color-text-alt);
 }
 
+.article-page__sourceUrl {
+  padding: var(--space-md) 0;
+  border-block: 1px solid var(--color-text);
+  margin-top: var(--space-md);
+}
+
+.article-page__sourceUrlLink {
+  color: var(--color-text-alt);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .article-page__sidebar {
   display: flex;
   flex-direction: column;

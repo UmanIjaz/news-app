@@ -2,12 +2,17 @@ import "./HighlightsCards.css";
 import { HighlightsCard } from "..";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-function HighlightsCards({ items }) {
+// import articles from "../../data";
+function HighlightsCards({ articles }) {
   return (
     <section className="highlights-cards">
-      {items.map((item, index) => (
-        <Link to={`articles/${item.Title}`} key={item.Title || index}>
-          <HighlightsCard item={item} itemIndex={index} />
+      {articles.map((article, index) => (
+        <Link
+          to={`/articles/${article.Title}`}
+          state={{ article }}
+          key={article.Title || index}
+        >
+          <HighlightsCard article={article} itemIndex={index} />
         </Link>
       ))}
     </section>
@@ -15,7 +20,7 @@ function HighlightsCards({ items }) {
 }
 
 HighlightsCards.propTypes = {
-  items: PropTypes.array,
+  articles: PropTypes.array,
 };
 
 export default HighlightsCards;
