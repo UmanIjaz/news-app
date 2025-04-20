@@ -8,7 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const cache = new Map();
 const CACHE_DURATION_MS = 1000 * 60 * 5;
@@ -29,6 +34,11 @@ app.get("/api/proxy", async (req, res) => {
     const now = Date.now();
     const cached = cache.get(url);
 
+    if (process.env.NODE_ENV === "development") {
+      console.log("Serving mock data for development");
+      return res.json(mockNewsData);
+    }
+
     if (cached && now - cached.timestamp < CACHE_DURATION_MS) {
       console.log("Serving from cache");
       return res.json(cached.data);
@@ -44,7 +54,7 @@ app.get("/api/proxy", async (req, res) => {
 
     if (response.status === 429) {
       console.warn("Rate limit hit. Returning mock data.");
-      return res.json(mockNewsData);
+      return res.json({ ...mockNewsData, isMockData: true });
     }
 
     if (!response.ok) {
@@ -71,6 +81,7 @@ app.get("/api/proxy", async (req, res) => {
   }
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Proxy server running at http://localhost:${PORT}`);
 });

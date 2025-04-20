@@ -1,117 +1,42 @@
-// // import { HeroArticle, Sidebar, HighlightsCards } from "../../components";
-// // import articles from "../../data";
-// // import "./HomePage.css";
-// // import fetchArticles from "../../api/news";
-// // import { useEffect, useState } from "react";
-// // // function HomePage() {
-// // //   const { new: newArticles } = articles;
-// // //   const { trending: trendingArticles } = articles;
-
-// // const [articles, setArticles] = useState([])
-// // const [isLoading, setIsLoading] = useState(false)
-
-// //   useEffect(() => {
-// //     fetchArticles({
-// //       targetUrl:
-// //         "https://news67.p.rapidapi.com/v2/country-news?fromCountry=gb&onlyInternational=true",
-// //         setIsLoading,
-// //         setArticles
-// //     });
-// //   }, []);
-
-// //   return (
-// //     <main className="homepage container">
-// //       <div className="top-section homepage__top-section">
-// //         <HeroArticle />
-// //         <Sidebar items={newArticles} />
-// //       </div>
-// //       <HighlightsCards items={trendingArticles} />
-// //     </main>
-// //   );
-// // }
-
-// // export default HomePage;
-
-// import { HeroArticle, Sidebar, HighlightsCards } from "../../components";
-// import fetchArticles from "../../api/news";
-// import { useEffect, useState } from "react";
-// import { Loader } from "../../components/";
-// import "./HomePage.css";
-
-// function HomePage() {
-//   const [articles, setArticles] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   const [heroArticle, setHeroArticle] = useState([]);
-//   const [sidebarArticles, setSidebarArticles] = useState([]);
-//   const [highlightArticles, setHighlightArticles] = useState([]);
-
-//   useEffect(() => {
-//     fetchArticles({
-//       targetUrl:
-//         "https://news67.p.rapidapi.com/v2/country-news?fromCountry=gb&onlyInternational=true",
-//       setIsLoading,
-//       setArticles,
-//     });
-//   }, []);
-
-//   useEffect(() => {
-//     if (articles.length >= 7) {
-//       setHeroArticle(articles.slice(0, 1));
-//       setSidebarArticles(articles.slice(1, 4));
-//       setHighlightArticles(articles.slice(-3));
-//     } else {
-//       // Optional: handle <7 articles case here if needed
-//       setHeroArticle([]);
-//       setSidebarArticles([]);
-//       setHighlightArticles([]);
-//     }
-//   }, [articles]);
-
-//   return (
-//     <main className="homepage container">
-//       {isLoading ? (
-//         <Loader />
-//       ) : (
-//         <>
-//           <div className="top-section homepage__top-section">
-//             <HeroArticle article={heroArticle[0]} />
-//             <Sidebar articles={sidebarArticles} />
-//           </div>
-//           <HighlightsCards articles={highlightArticles} />
-//         </>
-//       )}
-//     </main>
-//   );
-// }
-
-// export default HomePage;
-
 import { HeroArticle, Sidebar, HighlightsCards } from "../../components";
 import fetchArticles from "../../api/news";
 import { useEffect, useState } from "react";
 import SkeletonMimic from "../../components/utils/SkeletonMimic/SkeletonMimic";
+import { ErrorComponent, Notification } from "../../components/";
 import "./HomePage.css";
 
 function HomePage() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [isMockData, setIsMockData] = useState(false);
 
   const [heroArticle, setHeroArticle] = useState([]);
   const [sidebarArticles, setSidebarArticles] = useState([]);
   const [highlightArticles, setHighlightArticles] = useState([]);
 
   useEffect(() => {
-    fetchArticles({
-      targetUrl:
-        "https://news67.p.rapidapi.com/v2/country-news?fromCountry=gb&onlyInternational=true",
-      setIsLoading,
-      setArticles,
-    });
+    const fetchData = async () => {
+      setError(null);
+      try {
+        await fetchArticles({
+          targetUrl:
+            "https://news67.p.rapidapi.com/v2/country-news?fromCountry=gb&onlyInternational=true",
+          setIsLoading,
+          setArticles,
+          setIsMockData,
+        });
+      } catch (err) {
+        console.error("Fetch error:", err);
+        setError(err.message || "Something went wrong while loading articles.");
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
-    if (articles.length >= 7) {
+    if (Array.isArray(articles) && articles.length >= 7) {
       setHeroArticle(articles.slice(0, 1));
       setSidebarArticles(articles.slice(1, 4));
       setHighlightArticles(articles.slice(-3));
@@ -121,20 +46,44 @@ function HomePage() {
       setHighlightArticles([]);
     }
   }, [articles]);
+  console.log(articles.isMockData);
+
+  const renderContent = () => {
+    if (isLoading) return <SkeletonMimic />;
+
+    if (error) return <ErrorComponent message={error} />;
+
+    // if (!Array.isArray(articles) || articles.length === 0) {
+    //   return <ErrorComponent message="No articles available at the moment." />;
+    // }
+
+    return (
+      <>
+        <div className="top-section homepage__top-section">
+          <HeroArticle article={heroArticle[0]} />
+          <Sidebar articles={sidebarArticles} />
+        </div>
+        {isMockData && (
+          <div className="mock-data-warning">
+            <p>Mock data is being displayed due to API rate limit.</p>
+          </div>
+        )}
+
+        <HighlightsCards articles={highlightArticles} />
+      </>
+    );
+  };
 
   return (
     <main className="homepage container">
-      {isLoading ? (
-        <SkeletonMimic />
-      ) : (
-        <>
-          <div className="top-section homepage__top-section">
-            <HeroArticle article={heroArticle[0]} />
-            <Sidebar articles={sidebarArticles} />
-          </div>
-          <HighlightsCards articles={highlightArticles} />
-        </>
+      {isMockData && (
+        <Notification
+          message="Mock data is being displayed due to API rate limit."
+          type="warning"
+          onClose={() => setIsMockData(false)} // Clear notification after it slides out
+        />
       )}
+      {renderContent()}
     </main>
   );
 }

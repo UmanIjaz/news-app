@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage, ArticlePage, ResultsPage, NotFoundPage } from "./pages/";
 import { Layout } from "./components/";
-import { useState } from "react";
 function App() {
-  const [articles, setArticles] = useState([]);
 
   return (
     <div className="App">
@@ -12,7 +10,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route
             path="/articles/:Title"
-            element={<ArticlePage articles={articles} />}
+            element={<ArticlePage />}
           />
           <Route
             path="/category/crypto"

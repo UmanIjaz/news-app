@@ -46,7 +46,7 @@ function ArticlePage() {
         </div>
         <figure className="article-page__image-wrapper">
           <img
-            src={article?.ImageUrl || "/fallbackImage.jpg"}
+            src={article?.Image || "/fallbackImage.jpg"}
             alt={article?.Title || "Article image"}
             className="article-page__image"
           />
@@ -63,7 +63,14 @@ function ArticlePage() {
             <p className="article-page__sourceUrlText">
               Source - Read full article here:
             </p>
-            <a className="article-page__sourceUrlLink">{article?.Url}</a>
+            <a
+              className="article-page__sourceUrlLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={article?.Url}
+            >
+              {article?.Url}
+            </a>
           </span>
         </div>
 

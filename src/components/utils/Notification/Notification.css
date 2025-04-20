@@ -1,0 +1,46 @@
+.notification {
+  width: 280px;
+  position: fixed;
+  top: 20px;
+  right: -300px; /* Start off-screen */
+  background-color: #f0f4f8;
+  color: #333;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  z-index: 1000;
+  transition: right 0.3s ease-in-out; /* Smooth slide-in and slide-out */
+}
+
+.notification.notification-info {
+  background-color: #cde9f6;
+  color: #3f79af;
+  border: 1.5px solid #a1c6d5;
+}
+
+.notification.notification-success {
+  background-color: #dcf3d7;
+  color: #52674b;
+  border: 1.5px solid #c2d4ba;
+}
+
+.notification.notification-warning {
+  background-color: #f8f4c3;
+  color: #94702b;
+  border: 1.5px solid #ddd9a7;
+}
+
+.notification.notification-error {
+  background-color: #eec8c5;
+  color: #a4352f;
+  border: 1.5px solid #c09b99;
+}
+
+.notification.show {
+  right: 20px; /* Slide into view */
+}
+
+.notification.hide {
+  right: -300px; /* Slide out of view */
+}

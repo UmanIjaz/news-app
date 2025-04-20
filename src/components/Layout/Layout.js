@@ -3,11 +3,11 @@ import { Header, Footer } from "../";
 
 function Layout() {
   return (
-    <>
+    <div className="layout">
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 

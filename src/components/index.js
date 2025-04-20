@@ -18,3 +18,5 @@ export { default as Layout } from "./Layout/Layout";
 export { default as CtaButton } from "./utils/CtaButton/CtaButton";
 export { default as Loader } from "./utils/Loader/Loader";
 export { default as Skeleton } from "./utils/SkeletonMimic/SkeletonMimic";
+export { default as ErrorComponent } from "./utils/ErrorComponenet/ErrorComponent";
+export { default as Notification } from "./utils/Notification/Notification";

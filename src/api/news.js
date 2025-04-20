@@ -1,34 +1,51 @@
-const fetchArticles = async ({ targetUrl, setIsLoading, setArticles }) => {
+const fetchArticles = async ({
+  targetUrl,
+  setIsLoading,
+  setArticles,
+  setIsMockData,
+}) => {
   setIsLoading(true);
   try {
     const response = await fetch(
-      `http://localhost:5000/api/proxy?targetUrl=${encodeURIComponent(
-        targetUrl
-      )}`
+      `${
+        process.env.REACT_APP_API_BASE_URL
+      }/api/proxy?targetUrl=${encodeURIComponent(targetUrl)}`
     );
 
-    console.log(targetUrl);
-
-    // Better error handling
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`API error: ${response.status} - ${errorText}`);
     }
 
     const contentType = response.headers.get("content-type");
-    if (!contentType?.includes("application/json")) {
+    if (!contentType || !contentType.includes("application/json")) {
       const text = await response.text();
-      throw new Error(`Expected JSON but got ${contentType}: ${text}`);
+      throw new Error(
+        `Expected JSON but got ${contentType || "unknown"}: ${text}`
+      );
     }
 
     const data = await response.json();
-    console.log(data);
-    setArticles(data.news || []);
+
+    // Extract isMockData and set it separately
+    if (setIsMockData) {
+      setIsMockData(data.isMockData || false);
+    }
+
+    if (!data || typeof data !== "object" || !Array.isArray(data.news)) {
+      throw new Error("Invalid data format received from API.");
+    }
+
+    setArticles(data.news);
+    return null;
   } catch (error) {
-    console.error("Error fetching articles:", error);
+    console.error("Error fetching articles:", error.message || error);
     setArticles([]);
-    // Show user-friendly error
-    alert(`Failed to load articles: ${error.message}`);
+    throw new Error(
+      error.message.includes("Failed to fetch")
+        ? "Cannot connect to the server. Please check your internet connection."
+        : error.message
+    );
   } finally {
     setIsLoading(false);
   }
