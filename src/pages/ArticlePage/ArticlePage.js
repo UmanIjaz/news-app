@@ -1,10 +1,9 @@
 import { useLocation } from "react-router-dom";
 import mockData from "../../mockData";
 import { Sidebar } from "../../components";
-import { Link } from "react-router-dom";
 import "./ArticlePage.css";
 import PropTypes from "prop-types";
-import { formatDate, trimText } from "../../utilFunc";
+import { formatDate } from "../../utilFunc";
 
 function ArticlePage() {
   const location = useLocation();
@@ -22,9 +21,7 @@ function ArticlePage() {
         <div className="article-page__header-info">
           <nav aria-label="breadcrumb">
             <p className="article-page__category">
-              <Link to={`/${article?.Categories?.label}`}>
-                {article?.Categories?.label}
-              </Link>
+              {article?.Categories?.label}
             </p>
           </nav>
           <h1 className="article-page__title">{article?.Title}</h1>
@@ -36,7 +33,7 @@ function ArticlePage() {
                 <strong>{article.author}</strong>
               </p>
             )}
-            <p>
+            <p className="article-page__date">
               <span>6 min read</span> |{" "}
               <time dateTime={article?.PublishedOn}>
                 {formatDate(article?.PublishedOn)}
@@ -50,9 +47,7 @@ function ArticlePage() {
             alt={article?.Title || "Article image"}
             className="article-page__image"
           />
-          <figcaption className="visually-hidden">
-            {trimText(article?.Title, 40)}
-          </figcaption>
+          <figcaption className="visually-hidden">{article?.Title}</figcaption>
         </figure>
       </header>
 

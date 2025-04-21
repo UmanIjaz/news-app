@@ -13,6 +13,9 @@
 
 .theme-toggle__icon {
   fill: var(--color-bg);
+  height: 16px;
+  width: 16px;
+  margin: 0 auto;
 }
 
 .header__theme-toggle {

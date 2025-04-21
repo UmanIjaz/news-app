@@ -23,6 +23,7 @@
 
   /* Font System */
   --font-family: "Inter", sans-serif;
+  --font-family-secondary: "Fraunces", serif;
   --font-size-base: 15px;
   --font-size-page-title: clamp(2.5rem, 5vw, 4rem);
   --font-size-page-title: clamp(2.5rem, 5vw, 4rem);

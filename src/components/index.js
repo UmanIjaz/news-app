@@ -20,3 +20,4 @@ export { default as Loader } from "./utils/Loader/Loader";
 export { default as Skeleton } from "./utils/SkeletonMimic/SkeletonMimic";
 export { default as ErrorComponent } from "./utils/ErrorComponenet/ErrorComponent";
 export { default as Notification } from "./utils/Notification/Notification";
+export { default as ScrollToTop } from "./utils/ScrollToTop/ScrollToTop";

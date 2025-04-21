@@ -19,6 +19,7 @@
   font-size: 2rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-accent-2);
+  font-family: var(--font-family);
 }
 
 .highlights-card__description {

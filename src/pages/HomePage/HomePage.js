@@ -46,7 +46,6 @@ function HomePage() {
       setHighlightArticles([]);
     }
   }, [articles]);
-  console.log(articles.isMockData);
 
   const renderContent = () => {
     if (isLoading) return <SkeletonMimic />;
