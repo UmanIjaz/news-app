@@ -8,6 +8,7 @@ import {
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { getCache, setCache } from "../../utilFunc";
 
 function ResultsPage({ title, description = "", type = "trending" }) {
   const location = useLocation();
@@ -21,7 +22,18 @@ function ResultsPage({ title, description = "", type = "trending" }) {
   useEffect(() => {
     const fetchData = async () => {
       setError(null);
-      setIsLoading(true);
+      setIsLoading(false);
+
+      //Genrate unique cacheKey for each query change
+      const cacheKey = query ? `cache-search-${query}` : `cached-${type}`;
+
+      //Get Cached Data if exists
+      const cachedData = getCache(cacheKey, 10);
+      if (cachedData) {
+        console.log("Serving cached data: ", type);
+        setArticles(cachedData.news);
+        return;
+      }
 
       let url = `/api/news?type=${type}`;
 
@@ -29,9 +41,11 @@ function ResultsPage({ title, description = "", type = "trending" }) {
         url += `&query=${encodeURIComponent(query)}`;
       }
       try {
+        setIsLoading(true);
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
+        setCache(cacheKey, data);
         setError(null);
         setArticles(data.news);
         setIsLoading(false);
@@ -52,7 +66,7 @@ function ResultsPage({ title, description = "", type = "trending" }) {
       ) : error ? (
         <ErrorComponent message={error} />
       ) : !Array.isArray(articles) || articles.length === 0 ? (
-        <ErrorComponent message="No articles available for this category." />
+        <ErrorComponent message="No articles available." />
       ) : (
         <ArticlesGrid articles={articles} />
       )}

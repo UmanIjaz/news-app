@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import SkeletonMimic from "../../components/utils/SkeletonMimic/SkeletonMimic";
 import { ErrorComponent, Notification } from "../../components/";
 import "./HomePage.css";
+import { getCache, setCache } from "../../utilFunc";
 
 function HomePage() {
   const [articles, setArticles] = useState([]);
@@ -18,11 +19,22 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       setError(null);
+
+      //Get data from Cache if exists
+      const cachedData = getCache("cached-home", 10);
+      if (cachedData) {
+        console.log(`Serving cached data: home`);
+        setArticles(cachedData.news);
+        return;
+      }
+
+      //Fetch new data
       try {
         setIsLoading(true);
         const response = await fetch("/api/news?type=home");
         const data = await response.json();
         console.log(data);
+        setCache("cached-home", data);
         setArticles(data.news);
         setIsLoading(false);
       } catch (err) {
