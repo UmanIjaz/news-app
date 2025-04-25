@@ -17,7 +17,6 @@ const mockData = {
         sentiment: "",
         score: 0,
       },
-      author: "Uman Ijaz",
       Summary:
         "Elon Musk, the billionaire entrepreneur behind Tesla and SpaceX, has announced the launch of a groundbreaking artificial intelligence company that aims to revolutionize the field of AI. The company’s mission is to develop cutting-edge AI models that are not only powerful but also aligned with human values and safety. Musk has long expressed concerns about the unchecked growth of AI and the potential existential risks it could pose. His new company will prioritize transparency, open research, and collaboration with the broader tech community. Analysts expect this venture to intensify competition with established players like OpenAI, Google DeepMind, and Meta’s FAIR division. With Musk’s ambitious vision and track record of disrupting industries, this AI company could reshape the future of intelligent technologies.\n\n Sint et non deserunt laboris irure Lorem. Pariatur id nisi consectetur fugiat. Dolore non reprehenderit veniam id sit ea id officia ipsum consectetur esse ad in officia. Occaecat culpa adipisicing sint pariatur.",
       Countries: [],

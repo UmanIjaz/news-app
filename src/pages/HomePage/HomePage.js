@@ -1,5 +1,5 @@
 import { HeroArticle, Sidebar, HighlightsCards } from "../../components";
-import fetchArticles from "../../api/news";
+// import fetchArticles from "../../api/news";
 import { useEffect, useState } from "react";
 import SkeletonMimic from "../../components/utils/SkeletonMimic/SkeletonMimic";
 import { ErrorComponent, Notification } from "../../components/";
@@ -19,13 +19,12 @@ function HomePage() {
     const fetchData = async () => {
       setError(null);
       try {
-        await fetchArticles({
-          targetUrl:
-            "https://news67.p.rapidapi.com/v2/country-news?fromCountry=gb&onlyInternational=true",
-          setIsLoading,
-          setArticles,
-          setIsMockData,
-        });
+        setIsLoading(true);
+        const response = await fetch("/api/news?type=home");
+        const data = await response.json();
+        console.log(data);
+        setArticles(data.news);
+        setIsLoading(false);
       } catch (err) {
         console.error("Fetch error:", err);
         setError(err.message || "Something went wrong while loading articles.");

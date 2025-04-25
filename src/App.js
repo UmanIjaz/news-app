@@ -19,7 +19,7 @@ function App() {
           />
           <Route
             path="/category/Global"
-            element={<ResultsPage title="Global" type="country" />}
+            element={<ResultsPage title="Trending" type="trending" />}
           />
           <Route
             path="/search"

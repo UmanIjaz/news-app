@@ -10,7 +10,6 @@ function Navbar() {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/category/Crypto", label: "Crypto" },
-    { to: "/category/Global", label: "Global" },
     { to: "/category/news", label: "Feed" },
   ];
 
