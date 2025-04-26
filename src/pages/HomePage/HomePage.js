@@ -1,5 +1,4 @@
 import { HeroArticle, Sidebar, HighlightsCards } from "../../components";
-// import fetchArticles from "../../api/news";
 import { useEffect, useState } from "react";
 import SkeletonMimic from "../../components/utils/SkeletonMimic/SkeletonMimic";
 import { ErrorComponent, Notification } from "../../components/";
@@ -7,79 +6,69 @@ import "./HomePage.css";
 import { getCache, setCache } from "../../utilFunc";
 
 function HomePage() {
-  const [articles, setArticles] = useState([]);
+  const [sections, setSections] = useState({
+    hero: [],
+    sidebar: [],
+    highlights: [],
+  });
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isMockData, setIsMockData] = useState(false);
-
-  const [heroArticle, setHeroArticle] = useState([]);
-  const [sidebarArticles, setSidebarArticles] = useState([]);
-  const [highlightArticles, setHighlightArticles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       setError(null);
 
-      //Get data from Cache if exists
-      const cachedData = getCache("cached-home", 10);
-      if (cachedData) {
-        console.log(`Serving cached data: home`);
-        setArticles(cachedData.news);
+      const cachedData = getCache("cached-home", 5);
+      if (cachedData && Array.isArray(cachedData.news)) {
+        console.log("Serving cached data: home");
+        const news = cachedData.news;
+        setSections({
+          hero: news.slice(0, 1),
+          sidebar: news.slice(1, 4),
+          highlights: news.slice(-3),
+        });
         return;
       }
 
-      //Fetch new data
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const response = await fetch("/api/news?type=home");
         const data = await response.json();
         console.log(data);
         setCache("cached-home", data);
-        setArticles(data.news);
-        setIsLoading(false);
+
+        const news = data.news || [];
+        setSections({
+          hero: news.slice(0, 1),
+          sidebar: news.slice(1, 4),
+          highlights: news.slice(-3),
+        });
+
+        setIsMockData(data?.isRateLimit);
       } catch (err) {
         console.error("Fetch error:", err);
         setError(err.message || "Something went wrong while loading articles.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (Array.isArray(articles) && articles.length >= 7) {
-      setHeroArticle(articles.slice(0, 1));
-      setSidebarArticles(articles.slice(1, 4));
-      setHighlightArticles(articles.slice(-3));
-    } else {
-      setHeroArticle([]);
-      setSidebarArticles([]);
-      setHighlightArticles([]);
-    }
-  }, [articles]);
-
   const renderContent = () => {
     if (isLoading) return <SkeletonMimic />;
-
     if (error) return <ErrorComponent message={error} />;
-
-    // if (!Array.isArray(articles) || articles.length === 0) {
-    //   return <ErrorComponent message="No articles available at the moment." />;
-    // }
 
     return (
       <>
         <div className="top-section homepage__top-section">
-          <HeroArticle article={heroArticle[0]} />
-          <Sidebar articles={sidebarArticles} />
+          <HeroArticle article={sections.hero[0]} />
+          <Sidebar articles={sections.sidebar} />
         </div>
-        {isMockData && (
-          <div className="mock-data-warning">
-            <p>Mock data is being displayed due to API rate limit.</p>
-          </div>
-        )}
-
-        <HighlightsCards articles={highlightArticles} />
+        <HighlightsCards articles={sections.highlights} />
       </>
     );
   };
@@ -90,7 +79,7 @@ function HomePage() {
         <Notification
           message="Mock data is being displayed due to API rate limit."
           type="warning"
-          onClose={() => setIsMockData(false)} // Clear notification after it slides out
+          onClose={() => setIsMockData(false)}
         />
       )}
       {renderContent()}
