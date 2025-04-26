@@ -68,7 +68,7 @@ export default async function handler(req, res) {
       return;
   }
 
-  const apiKey = process.env.REACT_APP_REST_NEWS_API_KEY;
+  const apiKey = process.env.REST_NEWS_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: "API key not configured." });
   }
